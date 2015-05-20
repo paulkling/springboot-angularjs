@@ -1,0 +1,11 @@
+<div class="thumbnail">
+  <img src="{{subject.image}}" data-ng-class="[subject.redobgr == 1 ? 'blur' : '']">
+  <div class="caption">
+    <center>  
+      {{subject.piecenumber}}-{{subject.seq}}
+      <button class="btn glyphicon glyphicon-ok btn-primary" 
+            data-ng-class="[subject.redobgr == 1 ? 'btn-danger' : 'btn-primary']" 
+            data-ng-click="buttonToggle();">{{subject.redobgr == 1 ? ' Redo-BGR' : ' Edit-again'}}</button>
+    </center>
+  </div>
+</div>

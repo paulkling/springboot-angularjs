@@ -1,0 +1,64 @@
+apply plugin: "groovy"
+apply plugin: "spring-boot"
+apply plugin: "application"
+apply plugin: net.saliman.gradle.plugin.cobertura.CoberturaPlugin
+
+
+sourceCompatibility = "1.6"
+targetCompatibility = "1.6"
+
+version = "${version}"
+group = "${group}"
+mainClassName = "com.company.springbootangularjs.DeviceControllerApplication"
+
+buildscript {
+    ext {
+        springBootVersion = '1.2.3.RELEASE'
+    }    
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.7"
+    }
+}
+
+
+jar {
+    baseName = 'springboot-angularjs'
+    version =  "${version}"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url 'http://repo.springsource.org/libs-release-remote' }
+    maven { url 'http://repo.springsource.org/libs-milestone' }
+    maven { url 'http://repo.opensourceagility.com/release' }
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+
+    compile "org.ajar:swagger-spring-mvc-ui:0.4"
+    compile("com.mangofactory:swagger-springmvc:1.0.2") {
+        exclude group: 'org.mockito', module: 'mockito-all'
+    }
+    compile 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.4.0'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.4.0'
+    compile 'org.codehaus.woodstox:woodstox-core-asl:4.1.4'
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+cobertura {
+    coverageFormats = ['xml', 'html']
+}

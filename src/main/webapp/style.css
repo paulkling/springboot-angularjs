@@ -1,0 +1,10 @@
+/* Put your css in here */
+.blur {
+    -webkit-filter: blur(3px) grayscale(25%);
+}
+
+.gray {
+   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
