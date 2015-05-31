@@ -4,10 +4,13 @@ import groovy.transform.ToString
 
 @ToString
 class Subject {
-    String name
-    String piecenumber
-    String seq
-    String image
-    int redobgr
+    String id
+    int appended
+    String grabStatus
+    boolean ordered
+    boolean sendToEdit
+    String ucSssid
+    boolean viewed
+    String imageSource
 }
 

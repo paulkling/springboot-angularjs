@@ -11,7 +11,7 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
   
   $scope.addSubjects = function (){
     for (i = 0; i < 25; i++) { 
-      $scope.subjects.push({"name":"Fred was here","piecenumber":"ZZ10M100H003","seq":$scope.subjects.length+1,"image":"http://dummyimage.com/250x300/ffff00.png/000000&text=image "+($scope.subjects.length+1),"redobgr":0})
+      $scope.subjects.push({"id":"Fred was here","ucSssid":"ZZ10M100H003"+i,"imageSource":"http://dummyimage.com/250x300/ffff00.png/000000&text=image "+($scope.subjects.length+1),"sendToEdit":false})
     }
     $scope.totalItems = $scope.subjects.length + $scope.itemsPerPage; 
   };

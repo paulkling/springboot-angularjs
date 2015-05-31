@@ -32,11 +32,14 @@ class SubjectResource extends BaseResource {
 
         for (int x = 1; x < 10; x++) {
             Subject subject = new Subject()
-            subject.image = "http://placeimg.com/250/300/any/${x}"
-            subject.name = "Paul ${x}"
-            subject.piecenumber = jobnumber
-            subject.seq = "${x}"
-            subject.redobgr = 0
+            subject.id = "Image-${x}"
+            subject.appended = 0
+            subject.grabStatus = 'C'
+            subject.ordered = false
+            subject.sendToEdit = false
+            subject.ucSssid = "${jobnumber}${x}"
+            subject.viewed = false
+            subject.imageSource = "http://placeimg.com/250/300/any/${x}"
             subjects << subject
         }
         return subjects
@@ -49,7 +52,7 @@ class SubjectResource extends BaseResource {
     SaveResponse sendDocumentsToDevice(@RequestBody @Valid List<Subject> subjects) {
         log.info('Saving subjects')
         subjects.each {
-            log.info("piecenum:${it.piecenumber} seq:${it.seq}  bgrflag:${it.redobgr}")
+            log.info("ucSssid:${it.ucSssid}  sendToEdit:${it.sendToEdit}")
         }
         SaveResponse save = new SaveResponse()
         save.status = 'OK'

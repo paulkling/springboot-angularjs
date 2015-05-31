@@ -5,10 +5,10 @@ app.directive('bgrimage', function() {
         templateUrl: 'js/bgrimage/bgrimage.html',
         link: function(scope, elem, attr) {
             scope.buttonToggle = function() {
-                if (scope.subject.redobgr==0)
-                    scope.subject.redobgr=1;
+                if (scope.subject.sendToEdit==false)
+                    scope.subject.sendToEdit=true;
                 else
-                    scope.subject.redobgr=0;
+                    scope.subject.sendToEdit=false;
                 
             }
         }
