@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController
 
 import javax.validation.Valid
 
-import static org.springframework.http.MediaType.*
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
+import static org.springframework.http.MediaType.POST
 import static org.springframework.web.bind.annotation.RequestMethod.GET
 import static org.springframework.web.bind.annotation.RequestMethod.POST
 
@@ -46,13 +47,12 @@ class SubjectResource extends BaseResource {
             produces = [APPLICATION_JSON_VALUE])
     @ApiOperation('Accepts subjects to be saved; bgrflag is only data persisted')
     SaveResponse sendDocumentsToDevice(@RequestBody @Valid List<Subject> subjects) {
-        log.info("Saving subjects")
+        log.info('Saving subjects')
         subjects.each {
             log.info("piecenum:${it.piecenumber} seq:${it.seq}  bgrflag:${it.redobgr}")
         }
         SaveResponse save = new SaveResponse()
-        save.status = "OK"
+        save.status = 'OK'
         return save
     }
-
 }

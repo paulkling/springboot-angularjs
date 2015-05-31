@@ -29,7 +29,7 @@ class SwaggerConfig {
         String includePatternStr1 = "^/subjects*.*\$"
         String includePatternStr2 = "^/printrequests*.*\$"
         return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo())
-                .includePatterns(includePatternStr1,includePatternStr2)
+                .includePatterns(includePatternStr1, includePatternStr2)
     }
 
     private ApiInfo apiInfo() {
