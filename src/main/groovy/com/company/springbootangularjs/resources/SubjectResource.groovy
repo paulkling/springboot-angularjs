@@ -31,7 +31,7 @@ class SubjectResource extends BaseResource {
         List<Subject> subjects = []
 
         for (int x = 1; x < 10; x++) {
-            Subject subject = new Subject().with(){
+            Subject subject = new Subject().with {
                 id = "Image-${x}"
                 appended = 0
                 grabStatus = 'C'
