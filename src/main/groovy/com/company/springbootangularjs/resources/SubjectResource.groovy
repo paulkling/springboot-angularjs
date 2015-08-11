@@ -31,15 +31,16 @@ class SubjectResource extends BaseResource {
         List<Subject> subjects = []
 
         for (int x = 1; x < 10; x++) {
-            Subject subject = new Subject()
-            subject.id = "Image-${x}"
-            subject.appended = 0
-            subject.grabStatus = 'C'
-            subject.ordered = false
-            subject.sendToEdit = false
-            subject.ucSssid = "${jobnumber}${x}"
-            subject.viewed = false
-            subject.imageSource = "http://placeimg.com/250/300/any/${x}"
+            Subject subject = new Subject().with(){
+                id = "Image-${x}"
+                appended = 0
+                grabStatus = 'C'
+                ordered = false
+                sendToEdit = false
+                ucSssid = "${jobnumber}${x}"
+                viewed = false
+                imageSource = "http://placeimg.com/250/300/any/${x}"
+            }
             subjects << subject
         }
         return subjects
